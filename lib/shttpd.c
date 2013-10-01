@@ -1837,7 +1837,7 @@ getauth(struct conn *c, struct digest *dig)
 	if (ncasecmp(p, "Digest ", 7) != 0)
 		return (0);
 
-	(void) memset(dig, 0, sizeof(dig));
+	(void) memset(dig, 0, sizeof(*dig));
 
 	for (p += 7; p < e; p++)
 		if (ncasecmp(p, "username=", 9) == 0)
