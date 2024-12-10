@@ -2,6 +2,7 @@
 # spec file for package wseventsink (Version @PACKAGE_VERSION@)
 #
 # Copyright (c) 2010 SUSE LINUX Products GmbH, Nuernberg, Germany.
+# Copyright (c) 2024 SUSE LLC
 #
 # All modifications and additions to the file contributed by third parties
 # remain the property of their copyright owners, unless otherwise agreed
@@ -31,7 +32,7 @@ BuildRequires:  curl-devel
 Version:        @PACKAGE_VERSION@
 Release:        1
 Url:            https://openwsman.github.io
-License:        BSD3c
+License:        BSD-3-Clause
 Group:          System/Management
 Summary:        Opensource Implementation of WS-Management - Event Sink Handler
 Source:         %{name}-%{version}.tar.bz2
@@ -54,6 +55,12 @@ make DESTDIR=$RPM_BUILD_ROOT install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post -p /sbin/ldconfig
+
+%postun
+/sbin/ldconfig
+exit 0
 
 %files
 %defattr(-,root,root)
