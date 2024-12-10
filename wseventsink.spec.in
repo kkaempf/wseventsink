@@ -20,7 +20,10 @@
 
 
 Name:           wseventsink
+BuildRequires:  autoconf
+BuildRequires:  automake
 BuildRequires:  gcc-c++
+BuildRequires:  libtool
 BuildRequires:  libwsman-devel >= 2.8.0
 BuildRequires:  pkgconfig
 %if 0%{?suse_version} > 1010
