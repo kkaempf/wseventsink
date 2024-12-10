@@ -40,6 +40,8 @@
 #include <u/libu.h>
 #include "eventlistener.h"
 
+int facility = LOG_DAEMON;
+
 static int port = 80;
 static char *servicepath = "/eventsink";
 static int debug = 0;

@@ -19,7 +19,9 @@
 
 
 Name:           wseventsink
-BuildRequires:  gcc-c++ libwsman-devel pkgconfig
+BuildRequires:  gcc-c++
+BuildRequires:  libwsman-devel >= 2.8.0
+BuildRequires:  pkgconfig
 %if 0%{?suse_version} > 1010
 BuildRequires:  libcurl-devel
 %else
@@ -28,7 +30,7 @@ BuildRequires:  curl-devel
 %endif
 Version:        @PACKAGE_VERSION@
 Release:        1
-Url:            http://www.openwsman.org/
+Url:            https://openwsman.github.io
 License:        BSD3c
 Group:          System/Management
 Summary:        Opensource Implementation of WS-Management - Event Sink Handler
@@ -36,13 +38,7 @@ Source:         %{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
 %description
-Part of Openwsman, an Opensource Implementation of WS-Management
-
-
-
-Authors:
---------
-    Liang Hou <houliang@intel.com>
+A sample implementation showing how to capture events from Openwsman
 
 %prep
 %setup -q -n %{name}-%{version}
